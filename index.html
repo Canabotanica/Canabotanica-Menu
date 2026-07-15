@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CanaBotanica Menu</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="menu-shell">
+    <header class="menu-header">
+      <div class="brand-lockup"><span class="logo-mark">CB</span><div><strong>CanaBotanica</strong><small id="lastUpdated">Live menu preview</small></div></div>
+      <div class="header-actions"><a class="ghost" href="admin.html">Admin</a><button id="openCart">Order List <span id="cartCount">0</span></button></div>
+    </header>
+    <section class="menu-hero">
+      <div class="hero-inner">
+        <h1>Wholesale menu, updated from one source.</h1>
+        <p>Browse active CanaBotanica products, build an order request, and submit it for fulfillment review.</p>
+        <div class="hero-actions"><a href="#menu">View Products</a><a href="#featured">Featured Deals</a></div>
+      </div>
+    </section>
+    <main class="menu-main" id="menu">
+      <section class="featured-band" id="featured">
+        <div><h2>Featured</h2><small>Quick-add products selected in admin.</small></div>
+        <div class="featured-strip" id="featuredStrip"></div>
+      </section>
+      <section class="filter-bar">
+        <input id="searchInput" type="search" placeholder="Search by product, SKU, category, or strain">
+        <select id="phenotypeFilter" aria-label="Filter by phenotype"></select>
+        <select id="sizeFilter" aria-label="Filter by size"></select>
+      </section>
+      <div class="filter-row" id="categoryFilters"></div>
+      <section class="product-grid" id="productGrid"></section>
+      <div class="empty-state" id="emptyState" hidden>No matching products are visible right now.</div>
+    </main>
+  </div>
+  <button class="mobile-cart" id="mobileCartButton">Order List <span>0</span></button>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="orderDrawer" aria-label="Order list">
+    <div class="drawer-head"><button class="ghost" id="closeCart">Close</button><h2>Order Request</h2></div>
+    <div class="cart-items" id="cartItems"></div>
+    <form class="drawer-foot" id="orderForm">
+      <div class="total-line"><span>Estimated special total</span><strong id="cartTotal">$0.00</strong></div>
+      <input name="businessName" placeholder="Business name" required>
+      <input name="customerName" placeholder="Your name" required>
+      <input name="phone" placeholder="Phone" required>
+      <input name="email" type="email" placeholder="Email">
+      <textarea name="notes" placeholder="Notes, delivery window, or PO number"></textarea>
+      <button type="submit">Submit Order Request</button>
+      <small>Orders are requests until availability and compliance are verified.</small>
+    </form>
+  </aside>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/store.js"></script>
+  <script src="assets/customer.js"></script>
+</body>
+</html>
